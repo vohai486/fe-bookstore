@@ -1,4 +1,4 @@
-export const STATIC_HOST = 'http://localhost:8501'
+export const STATIC_HOST = 'https://be-bookstore.onrender.com'
 // https://be-bookstore.onrender.com/
 // http://localhost:8501
 export const StorageKeys = {
