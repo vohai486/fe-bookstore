@@ -1,0 +1,187 @@
+:root {
+  --third-main: #808089;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  -webkit-user-select: none; /* Cho trình duyệt WebKit */
+  -moz-user-select: none; /* Cho trình duyệt Firefox */
+  -ms-user-select: none; /* Cho trình duyệt Microsoft Edge và IE 10+ */
+  user-select: none; /* Các trình duyệt khác */
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-rendering: optimizeSpeed;
+  color: var(--third-main);
+}
+input,
+button,
+textarea,
+select {
+  // text-transform: capitalize;
+  font-size: inherit;
+  outline: none;
+  cursor: pointer;
+}
+img,
+picture,
+video,
+canvas {
+  object-fit: cover;
+  display: block;
+  max-width: 100%;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+.container {
+  max-width: 1270px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+.main {
+  min-height: calc(100vh - 100px);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+
+.box-border {
+  border-top: 1px solid rgb(235, 235, 240);
+}
+
+.css-1lauo1g-MuiRating-root.MuiRating-root {
+  color: '#ffce3d';
+}
+.box__filter {
+  padding: 0.75rem 0.875rem;
+}
+.button-address {
+  border: none;
+  background: unset;
+  color: #0b74e5;
+  font-weight: 700;
+}
+
+.MuiDialog-container.css-hz1bth-MuiDialog-container {
+  align-items: flex-start;
+  .MuiDialog-paper {
+    margin: 5rem;
+    min-width: 800px;
+    border-radius: 1.25rem;
+    @media (max-width: 900px) {
+      min-width: 500px;
+    }
+    @media (max-width: 600px) {
+      min-width: 400px;
+    }
+    @media (max-width: 450px) {
+      min-width: 350px;
+    }
+  }
+}
+
+.height-1rem {
+  height: 1rem;
+}
+.height-10px {
+  height: 0.625rem;
+}
+
+.message-error {
+  color: #d32f2f;
+}
+
+@keyframes right {
+  0% {
+    transform: translate(-950px, 0px) translateZ(0px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes left {
+  0% {
+    transform: translate(950px, 0px) translateZ(0px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.animation-right {
+  animation: right 0.5s;
+}
+.animation-left {
+  animation: left 0.3s;
+}
+
+.animation-bounce {
+  animation: bounce 600ms linear both;
+}
+@keyframes bounce {
+  0% {
+    transform: matrix3d(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  4.7% {
+    transform: matrix3d(0.45, 0, 0, 0, 0, 0.45, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  9.41% {
+    transform: matrix3d(0.883, 0, 0, 0, 0, 0.883, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  14.11% {
+    transform: matrix3d(1.141, 0, 0, 0, 0, 1.141, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  18.72% {
+    transform: matrix3d(1.212, 0, 0, 0, 0, 1.212, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  24.32% {
+    transform: matrix3d(1.151, 0, 0, 0, 0, 1.151, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  29.93% {
+    transform: matrix3d(1.048, 0, 0, 0, 0, 1.048, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  35.54% {
+    transform: matrix3d(0.979, 0, 0, 0, 0, 0.979, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  41.04% {
+    transform: matrix3d(0.961, 0, 0, 0, 0, 0.961, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  52.15% {
+    transform: matrix3d(0.991, 0, 0, 0, 0, 0.991, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  63.26% {
+    transform: matrix3d(1.007, 0, 0, 0, 0, 1.007, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  85.49% {
+    transform: matrix3d(0.999, 0, 0, 0, 0, 0.999, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+  100% {
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  }
+}
