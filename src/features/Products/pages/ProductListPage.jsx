@@ -33,6 +33,7 @@ const BoxPagination = styled(Box)(({ theme }) => ({
 }))
 
 const ProductListPage = () => {
+  const controller = new AbortController()
   const location = useLocation()
   const [searchParams, setSearchParams] = useSearchParams()
   const theme = useTheme()
@@ -59,10 +60,17 @@ const ProductListPage = () => {
           behavior: 'smooth',
         })
         setLoading(true)
-        const res = await bookApi.getAll({
-          ...queryParams,
-          fields: '-description',
-        })
+        setTimeout(() => {
+          controller.abort()
+        }, 5000)
+        const res = await bookApi.getAll(
+          {
+            ...queryParams,
+            fields: '-description',
+          },
+          controller.signal
+        )
+
         const { data, pagination } = res.data
         setProductList(data)
         setPagination(pagination)

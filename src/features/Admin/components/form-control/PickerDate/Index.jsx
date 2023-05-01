@@ -35,8 +35,6 @@ const BoxMain = styled(Box)(({ theme }) => ({
   },
 }))
 const PickerDate = ({ name, form, type = 'all' }) => {
-  // const [value, setValue] = useState(dayjs("2022-04-17"));
-  // console.log(value.$d);
   return (
     <Controller
       control={form.control}

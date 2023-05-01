@@ -1,11 +1,15 @@
 import { StorageKeys, STATIC_HOST } from '@/constants/common'
 import axios from 'axios'
+const controller = new AbortController()
+const { signal } = controller
 const axiosClient = new axios.create({
   baseURL: `${STATIC_HOST}/`,
+  timeout: 10000,
 })
 
 axiosClient.interceptors.request.use(
   function (config) {
+    // config.signal = signal
     config.headers['Authorization'] =
       'Bearer ' +
       (localStorage.getItem(StorageKeys.TOKEN)

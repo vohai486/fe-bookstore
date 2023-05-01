@@ -47,11 +47,9 @@ const notifySlice = createSlice({
   initialState,
   reducers: {
     addNotifyAdmin: (state, action) => {
-      console.log(action.payload)
       state.listNotifyAdmin = [action.payload, ...state.listNotifyAdmin]
     },
     addNotifyUser: (state, action) => {
-      console.log(action.payload)
       state.listNotifyUser = [action.payload, ...state.listNotifyUser]
     },
     setListNotifyUserLogout: (state, action) => {

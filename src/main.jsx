@@ -10,7 +10,6 @@ import NotFound from './components/NotFound'
 import './index.scss'
 import store from './redux/store'
 import { theme } from './theme'
-import AdminFeatures from './features/Admin'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>

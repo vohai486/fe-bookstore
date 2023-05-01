@@ -26,19 +26,6 @@ import {
   markReadChatAdmin,
 } from './redux/chatSlice'
 
-const spawnNotification = (body, icon, url, title) => {
-  let options = {
-    body,
-    icon,
-  }
-  let n = new Notification(title, options)
-
-  n.onclick = (e) => {
-    e.preventDefault()
-    window.open(url, '_blank')
-  }
-}
-
 const SocketClient = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -88,7 +75,6 @@ const SocketClient = () => {
     })
     socket.on('addMessageToAdmin', async (res) => {
       const pathName = new URL(window.location.href).pathname
-      console.log(res)
       if (pathName.includes(res.data.user._id)) {
         dispatch(addMessage(res))
       }

@@ -71,6 +71,8 @@ const ModalStockEntries = ({
   setCurrentItem,
   getInputs,
 }) => {
+  const controller = new AbortController()
+
   const theme = useTheme()
   const schema = yup.object().shape({
     qty: yup.number().min(1, 'Phải lớn hơn 0').required('Không được bỏ trống'),
@@ -103,13 +105,18 @@ const ModalStockEntries = ({
       getInputs()
       setCurrentItem({})
     } catch (error) {}
-    console.log(values)
   }
   const [listBook, setListBook] = useState()
   useEffect(() => {
     ;(async () => {
       try {
-        const res = await bookApi.getAll({ limit: 100, fields: 'name' })
+        setTimeout(() => {
+          controller.abort()
+        }, 5000)
+        const res = await bookApi.getAll(
+          { limit: 100, fields: 'name' },
+          controller.signal
+        )
         setListBook(res.data.data)
       } catch (error) {}
     })()

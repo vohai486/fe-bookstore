@@ -3,9 +3,7 @@ import React from 'react'
 import { Navigate } from 'react-router-dom'
 
 const ProtectedUser = ({ isloggedIn, children }) => {
-  console.log('isloggedIn', isloggedIn)
   if (!isloggedIn) {
-    console.log('chưa login')
     return (
       <Navigate
         to="/"
@@ -17,7 +15,6 @@ const ProtectedUser = ({ isloggedIn, children }) => {
 }
 
 const ProtectedAdmin = ({ isloggedIn, isAdmin, children }) => {
-  console.log(!isloggedIn || isAdmin !== 'admin')
   if (!isloggedIn || isAdmin !== 'admin') {
     return <Box>Dành cho Admin</Box>
   }

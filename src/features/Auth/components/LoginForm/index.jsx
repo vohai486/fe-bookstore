@@ -29,7 +29,6 @@ const LoginForm = ({ onSubmit }) => {
       await onSubmit(values)
     }
   }
-  console.log(form.formState.isSubmitting)
   return (
     <form onSubmit={form.handleSubmit(handleSubmit)}>
       <Typography variant="h1">Xin chào,</Typography>

@@ -112,6 +112,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }))
 
 const ProductsAdminPage = () => {
+  const controller = new AbortController()
+
   const [currentItem, setCurrentItem] = useState({})
   const [open, setOpen] = React.useState(false)
   const [listBook, setListBook] = useState([])
@@ -131,13 +133,19 @@ const ProductsAdminPage = () => {
     setLimit(+event.target.value)
     setPage(1)
   }
+  setTimeout(() => {
+    controller.abort()
+  }, 5000)
   const getProducts = async () => {
-    const res = await bookApi.getAll({
-      page: page + 1,
-      limit,
-      sort: 'newest',
-      q: encodeURIComponent(debounced.length === 0 ? '' : debounced),
-    })
+    const res = await bookApi.getAll(
+      {
+        page: page + 1,
+        limit,
+        sort: 'newest',
+        q: encodeURIComponent(debounced.length === 0 ? '' : debounced),
+      },
+      controller.signal
+    )
     setPagination({
       ...res.data.pagination,
     })
@@ -163,7 +171,6 @@ const ProductsAdminPage = () => {
         Danh sách Sách
         <button
           onClick={() => {
-            console.log(1)
             setOpen(true)
           }}
         >

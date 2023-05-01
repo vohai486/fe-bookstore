@@ -70,7 +70,7 @@ const RegisterForm = ({ onSubmit }) => {
         <PasswordField
           form={form}
           name="passwordConfirm"
-          placeholder="Xác nhận mật khẩu"
+          placeholder="Xác nhận"
         />
       </Box>
       <button

@@ -54,7 +54,6 @@ const AddToCartForm = ({ countInStock, id }) => {
     mode: 'onChange',
   })
   const handleOnSubmit = async (values) => {
-    console.log(values)
     if (!isloggedIn) {
       dispatch(showModalLogin())
     } else {
@@ -65,7 +64,6 @@ const AddToCartForm = ({ countInStock, id }) => {
           position: 'top-center',
           autoClose: 1000,
         })
-        console.log(res)
         const list = await dispatch(getCart())
         unwrapResult(list)
       } catch (error) {}

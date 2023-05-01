@@ -169,7 +169,6 @@ const OrderItem = ({ item }) => {
         url: `/admin/orders/${_id}`,
       })
       socket && socket.emit('orderAdminNotify', notify.data.data)
-      console.log(res.data.data)
       dispatch(updateListOrderMy(res.data.data))
     } catch (error) {}
   }
