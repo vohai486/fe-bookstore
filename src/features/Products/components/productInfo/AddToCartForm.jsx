@@ -1,5 +1,5 @@
 import QuantityField from '@/components/form-control/QuantityField'
-import { Box, Button, styled } from '@mui/material'
+import { Box, Button, styled, useTheme } from '@mui/material'
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
@@ -31,6 +31,7 @@ const BoxMain = styled('form')(({ theme }) => ({
   },
 }))
 const AddToCartForm = ({ countInStock, id }) => {
+  const theme = useTheme()
   const dispatch = useDispatch()
   const loggedInUser = useSelector((state) => state.user.currentUser)
   const isloggedIn = !!loggedInUser._id
@@ -75,17 +76,31 @@ const AddToCartForm = ({ countInStock, id }) => {
       onSubmit={form.handleSubmit(handleOnSubmit)}
       className="box-border"
     >
-      <QuantityField
-        name="qty"
-        form={form}
-        title="Số lượng"
-      />
-      <Button
-        type="submit"
-        className="btn-add-to-cart"
-      >
-        Chọn Mua
-      </Button>
+      {countInStock === 0 && (
+        <Box
+          sx={{
+            color: theme.palette.red2.main,
+          }}
+        >
+          Đã hết hàng
+        </Box>
+      )}
+      {countInStock !== 0 && (
+        <>
+          <QuantityField
+            name="qty"
+            form={form}
+            title="Số lượng"
+          />
+          <Box sx={{ marginTop: '1rem' }}>Còn lại ({countInStock})</Box>
+          <Button
+            type="submit"
+            className="btn-add-to-cart"
+          >
+            Chọn Mua
+          </Button>
+        </>
+      )}
     </BoxMain>
   )
 }

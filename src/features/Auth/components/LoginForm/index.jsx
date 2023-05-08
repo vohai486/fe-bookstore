@@ -38,7 +38,6 @@ const LoginForm = ({ onSubmit }) => {
         name="email"
         placeholder="abc@gmail.com"
       />
-      <div className="height-1rem"></div>
       <PasswordField
         form={form}
         name="password"

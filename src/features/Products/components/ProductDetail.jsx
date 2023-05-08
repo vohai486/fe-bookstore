@@ -1,6 +1,6 @@
 import bookApi from '@/api/axiosBook'
 import BreadcrumbComponent from '@/components/Breadcrumbs/Breadcrumbs'
-import { Grid, Paper, useMediaQuery, useTheme } from '@mui/material'
+import { Box, Grid, Paper, useMediaQuery, useTheme } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import AddToCartForm from './productInfo/AddToCartForm'
 import ProductDescription from './productInfo/ProductDescription'

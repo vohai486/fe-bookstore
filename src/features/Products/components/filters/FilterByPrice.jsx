@@ -48,21 +48,22 @@ const FilterByPrice = ({ onChange, price = '' }) => {
     setValues({ ...values, [name]: result })
   }
   const handleSubmit = () => {
-    const isvalid = +values.gte < 0 || +values.gte > +values.lte
-    if (isvalid) return
-    if (!onChange) return
+    const isvalid =
+      +values.gte < 0 ||
+      (!values.gte && !values.lte && +values.gte > +values.lte)
+    if (isvalid || !onChange) return
     const result = `${values.gte},${values.lte}`
 
     onChange('price', result)
     setValues({ gte: '', lte: '' })
   }
-  useEffect(() => {
-    const [gte, lte] = price.split(',')
-    const formatGte = +gte?.toLocaleString('it-IT', {
-      style: 'currency',
-      currency: 'đ',
-    })
-  }, [price])
+  // useEffect(() => {
+  //   const [gte, lte] = price.split(',')
+  //   const formatGte = +gte?.toLocaleString('it-IT', {
+  //     style: 'currency',
+  //     currency: 'đ',
+  //   })
+  // }, [price])
 
   return (
     <BoxMain className="box-border box__filter">

@@ -53,14 +53,12 @@ const RegisterForm = ({ onSubmit }) => {
           placeholder="Tên"
         />
       </Box>
-      <div className="height-1rem"></div>
       <InputField
         form={form}
         name="email"
         type="email"
         placeholder="Email"
       />
-      <div className="height-1rem"></div>
       <Box sx={{ display: 'flex', gap: '1rem' }}>
         <PasswordField
           form={form}

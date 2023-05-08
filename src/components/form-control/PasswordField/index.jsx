@@ -1,38 +1,38 @@
-import React, { useState } from "react";
-import { Box, styled, TextField, Typography } from "@mui/material";
-import { Controller } from "react-hook-form";
+import React, { useState } from 'react'
+import { Box, styled, TextField, Typography } from '@mui/material'
+import { Controller } from 'react-hook-form'
 
 const BoxMain = styled(Box)(({ theme }) => ({
-  position: "relative",
-  width: "100%",
-  ".input-field": {
-    width: "100%",
-    ".MuiInput-root": {
-      "&:before": {
-        borderBottom: "1px solid rgb(224, 224, 224)",
+  position: 'relative',
+  width: '100%',
+  '.input-field': {
+    width: '100%',
+    '.MuiInput-root': {
+      '&:before': {
+        borderBottom: '1px solid rgb(224, 224, 224)',
       },
-      "&:hover:not(.Mui-disabled):before": {
-        borderBottomColor: "rgb(224, 224, 224)",
-        borderWidth: "1px",
+      '&:hover:not(.Mui-disabled):before': {
+        borderBottomColor: 'rgb(224, 224, 224)',
+        borderWidth: '1px',
       },
     },
     input: {
-      fontSize: "0.875rem",
+      fontSize: '0.875rem',
       color: theme.palette.back1.main,
     },
   },
-  ".box-toggle": {
+  '.box-toggle': {
     fontWeight: 300,
-    position: "absolute",
+    position: 'absolute',
     right: 0,
-    bottom: "10%",
-    fontSize: "0.875rem",
+    bottom: '10%',
+    fontSize: '0.875rem',
     color: theme.palette.blue2.main,
-    cursor: "pointer",
+    cursor: 'pointer',
   },
-}));
+}))
 const PasswordField = ({ form, name, placeholder }) => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false)
   return (
     <Controller
       control={form.control}
@@ -42,7 +42,7 @@ const PasswordField = ({ form, name, placeholder }) => {
         fieldState: { invalid, isTouched, isDirty, error },
         formState,
       }) => (
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: '100%' }}>
           <BoxMain>
             <TextField
               onChange={onChange}
@@ -52,25 +52,34 @@ const PasswordField = ({ form, name, placeholder }) => {
               placeholder={placeholder}
               className="input-field"
               variant="standard"
-              type={show ? "text" : "password"}
+              type={show ? 'text' : 'password'}
               error={invalid}
             ></TextField>
-            <Box className="box-toggle" onClick={() => setShow(!show)}>
-              {show ? "Ẩn" : "Hiện"}
+            <Box
+              className="box-toggle"
+              onClick={() => setShow(!show)}
+            >
+              {show ? 'Ẩn' : 'Hiện'}
             </Box>
           </BoxMain>
-          {invalid && (
-            <Typography
-              sx={{ marginTop: "0.25rem", fontSize: "0.875rem" }}
-              color="red1.main"
-            >
-              {error?.message}
-            </Typography>
-          )}
+          <Box
+            sx={{
+              height: '1.25rem',
+            }}
+          >
+            {invalid && (
+              <Typography
+                sx={{ fontSize: '0.875rem' }}
+                color="red1.main"
+              >
+                {error?.message}
+              </Typography>
+            )}
+          </Box>
         </Box>
       )}
     ></Controller>
-  );
-};
+  )
+}
 
-export default PasswordField;
+export default PasswordField

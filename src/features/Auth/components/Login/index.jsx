@@ -5,11 +5,9 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import LoginForm from '../LoginForm'
-import { useSocket } from '@/contexts/socketContext'
 
 const Login = () => {
   const dispatch = useDispatch()
-  const { socket } = useSocket()
 
   const handleSubmit = async (values) => {
     try {

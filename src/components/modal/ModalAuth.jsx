@@ -50,7 +50,7 @@ const ModalStyled = styled(DialogContent)(({ theme }) => ({
       marginBottom: '.25rem',
     },
     '.btn-submit': {
-      margin: '2rem 0',
+      margin: '1rem 0',
       width: '100%',
       border: '1px solid transparent',
       borderRadius: '.25rem',
