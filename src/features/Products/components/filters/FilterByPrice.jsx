@@ -48,12 +48,12 @@ const FilterByPrice = ({ onChange, price = '' }) => {
     setValues({ ...values, [name]: result })
   }
   const handleSubmit = () => {
+    console.log(1)
     const isvalid =
       +values.gte < 0 ||
       (!values.gte && !values.lte && +values.gte > +values.lte)
     if (isvalid || !onChange) return
     const result = `${values.gte},${values.lte}`
-
     onChange('price', result)
     setValues({ gte: '', lte: '' })
   }

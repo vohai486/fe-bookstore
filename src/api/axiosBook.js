@@ -1,8 +1,8 @@
 import axiosClient from './axiosClient'
 const bookApi = {
-  getAll(params, signal) {
+  getAll(params) {
     const url = 'api/v1/books'
-    return axiosClient.get(url, { params, signal })
+    return axiosClient.get(url, { params })
   },
   get(id) {
     const url = `api/v1/books/${id}`

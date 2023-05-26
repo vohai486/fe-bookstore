@@ -12,7 +12,12 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import QuantityField from '@/components/form-control/QuantityField'
 import { useForm } from 'react-hook-form'
 import { useDispatch, useSelector } from 'react-redux'
-import { formatPrice, formatPriceVND, getImage } from '@/utils/common'
+import {
+  formatPrice,
+  formatPriceVND,
+  generateNameId,
+  getImage,
+} from '@/utils/common'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import cartApi from '@/api/axiosCart'
@@ -135,7 +140,11 @@ const ItemCart = ({ item, handleItemChecked }) => {
           alt=""
         />
         <span className="cart-name">
-          <NavLink to={`/${item.product._id}`}>{item.product.name}</NavLink>{' '}
+          <NavLink
+            to={`/${generateNameId(item.product.name, item.product._id)}`}
+          >
+            {item.product.name}
+          </NavLink>{' '}
         </span>
       </Box>
       {isBreakpointDown780 && (

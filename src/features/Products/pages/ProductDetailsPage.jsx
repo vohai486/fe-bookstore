@@ -3,6 +3,7 @@ import { Box, Grid, styled, Paper, useTheme } from '@mui/material'
 import ProductListReview from '../components/ProductListReview'
 import { useParams } from 'react-router-dom'
 import ProductDetail from '../components/ProductDetail'
+import { getIdFromNameId } from '@/utils/common'
 
 const BoxMain = styled(Box)(({ theme }) => ({
   h2: {
@@ -16,11 +17,11 @@ const BoxMain = styled(Box)(({ theme }) => ({
 const ProductDetailsPage = () => {
   const theme = useTheme()
   const param = useParams()
-
+  const id = getIdFromNameId(param.id)
   return (
     <BoxMain>
-      <ProductDetail bookId={param.id} />
-      <ProductListReview bookId={param.id} />
+      <ProductDetail bookId={id} />
+      <ProductListReview bookId={id} />
     </BoxMain>
   )
 }

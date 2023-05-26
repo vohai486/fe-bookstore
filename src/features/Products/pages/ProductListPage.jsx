@@ -63,13 +63,10 @@ const ProductListPage = () => {
         setTimeout(() => {
           controller.abort()
         }, 5000)
-        const res = await bookApi.getAll(
-          {
-            ...queryParams,
-            fields: '-description',
-          },
-          controller.signal
-        )
+        const res = await bookApi.getAll({
+          ...queryParams,
+          fields: '-description',
+        })
 
         const { data, pagination } = res.data
         setProductList(data)

@@ -67,7 +67,7 @@ export function formatPriceVND(price) {
 }
 
 export function formatPrice(price) {
-  if (!price) return
+  if (!price) return 0
   return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
 }
 
@@ -166,4 +166,17 @@ export function formatDate(d) {
     ' ' +
     [d.getHours(), d.getMinutes(), d.getSeconds()].join(':')
   )
+}
+export const removeSpecialCharacter = (str) =>
+  str.replace(
+    /!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g,
+    ''
+  )
+export const generateNameId = (name, id) => {
+  return removeSpecialCharacter(name).replace(/\s/g, '-') + `-i-${id}`
+}
+
+export const getIdFromNameId = (nameId) => {
+  const arr = nameId.split('-i-')
+  return arr[arr.length - 1]
 }

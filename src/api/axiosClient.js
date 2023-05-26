@@ -39,7 +39,7 @@ axiosClient.interceptors.response.use(
     // ) {
     //   throw new Error("Email already exists");
     // }
-    if (error.response.data?.msg) {
+    if (error.response?.data?.msg) {
       console.log(error.response.data?.msg)
       throw new Error(error.response.data?.msg)
     }

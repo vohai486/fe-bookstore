@@ -96,6 +96,9 @@ const AddToCartForm = ({ countInStock, id }) => {
           <Button
             type="submit"
             className="btn-add-to-cart"
+            disabled={
+              form.formState.errors['qty'] && form.formState.errors.qty?.message
+            }
           >
             Chọn Mua
           </Button>

@@ -106,6 +106,12 @@ const FILTER_LIST = [
     id: 4,
     getLabel: (filters) => {
       const [gte, lte] = (filters['price'] || '').split(',')
+      if (!gte) {
+        return `Từ ${formatPrice(gte)} đến ${formatPrice(lte)}`
+      }
+      if (!lte) {
+        return `Trên ${formatPrice(gte)}`
+      }
       return `Từ ${formatPrice(gte)} đến ${formatPrice(lte)}`
     },
     onDelete: (filters) => {

@@ -137,15 +137,12 @@ const ProductsAdminPage = () => {
     controller.abort()
   }, 5000)
   const getProducts = async () => {
-    const res = await bookApi.getAll(
-      {
-        page: page + 1,
-        limit,
-        sort: 'newest',
-        q: encodeURIComponent(debounced.length === 0 ? '' : debounced),
-      },
-      controller.signal
-    )
+    const res = await bookApi.getAll({
+      page: page + 1,
+      limit,
+      sort: 'newest',
+      q: encodeURIComponent(debounced.length === 0 ? '' : debounced),
+    })
     setPagination({
       ...res.data.pagination,
     })

@@ -141,7 +141,6 @@ const FormInfo = () => {
       setShowModalImage(!showModalImage)
     }
   }
-  console.log(!!user.avatar)
   return (
     <BoxMain onSubmit={form.handleSubmit(handleUpdateUser)}>
       <span className="info-title">Thông tin cá nhân</span>

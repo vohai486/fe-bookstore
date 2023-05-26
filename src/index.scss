@@ -7,13 +7,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-html,
-body {
-  -webkit-user-select: none; /* Cho trình duyệt WebKit */
-  -moz-user-select: none; /* Cho trình duyệt Firefox */
-  -ms-user-select: none; /* Cho trình duyệt Microsoft Edge và IE 10+ */
-  user-select: none; /* Các trình duyệt khác */
-}
+// html,
+// body {
+//   -webkit-user-select: none; /* Cho trình duyệt WebKit */
+//   -moz-user-select: none; /* Cho trình duyệt Firefox */
+//   -ms-user-select: none; /* Cho trình duyệt Microsoft Edge và IE 10+ */
+//   user-select: none; /* Các trình duyệt khác */
+// }
 html,
 body {
   height: 100%;

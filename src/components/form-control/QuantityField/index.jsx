@@ -80,7 +80,7 @@ const QuantityField = ({ form, name, title, size = 'big', onUpdate }) => {
                 onUpdate && !error && onUpdate(+e.target.value)
               }}
               onChange={(e) => {
-                if (e.target.value.length === 0) {
+                if (e.target.value === 0) {
                   onChange(1)
                 } else if (+e.target.value <= 0) {
                   onChange(1)

@@ -4,7 +4,7 @@ import HourglassEmptyOutlinedIcon from '@mui/icons-material/HourglassEmptyOutlin
 import LocalShippingOutlinedIcon from '@mui/icons-material/LocalShippingOutlined'
 import TwoWheelerOutlinedIcon from '@mui/icons-material/TwoWheelerOutlined'
 import DoNotDisturbAltOutlinedIcon from '@mui/icons-material/DoNotDisturbAltOutlined'
-import { formatPriceVND, getImage } from '@/utils/common'
+import { formatPriceVND, generateNameId, getImage } from '@/utils/common'
 import { useNavigate } from 'react-router-dom'
 import ModalReview from '@/components/modal/ModalReview'
 import orderApi from '@/api/axiosOrder'
@@ -150,6 +150,7 @@ const handleStatus = (status) => {
   }
 }
 const OrderItem = ({ item }) => {
+  console.log(item)
   const dispatch = useDispatch()
   const { socket } = useSocket()
   const navigate = useNavigate()
@@ -190,7 +191,7 @@ const OrderItem = ({ item }) => {
             </Box>
             <h3
               style={{ cursor: 'pointer' }}
-              onClick={() => navigate(`/${ele.book}`)}
+              onClick={() => navigate(`/${generateNameId(ele.name, ele.book)}`)}
             >
               {ele.name}
             </h3>

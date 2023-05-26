@@ -13,6 +13,7 @@ import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt'
 import ThumbUpOffAltRoundedIcon from '@mui/icons-material/ThumbUpOffAltRounded'
 import RateReviewOutlinedIcon from '@mui/icons-material/RateReviewOutlined'
 import { getImage, ratingReview, timeSince } from '@/utils/common'
+import reviewApi from '@/api/axiosReview'
 const BoxMain = styled(Box)(({ theme }) => ({
   padding: '2rem 3rem',
   h4: {
@@ -97,9 +98,21 @@ const BoxMain = styled(Box)(({ theme }) => ({
 }))
 const ProductComment = ({ comment = {} }) => {
   const [like, setLike] = useState(comment.is_liked || false)
+  const [likeCount, setLikeCount] = useState(comment.likes_count || 0)
   const theme = useTheme()
   const userTime = timeSince(comment.user?.createdAt)
   const commentTime = timeSince(comment.createdAt)
+  const handleLike = async () => {
+    if (like) {
+      setLike(false)
+      setLikeCount(likeCount - 1)
+      await reviewApi.unlikeReview(comment._id)
+    } else {
+      setLikeCount(likeCount + 1)
+      setLike(true)
+      await reviewApi.likeReview(comment._id)
+    }
+  }
   return (
     <BoxMain className="box-border">
       <Grid container>
@@ -166,9 +179,12 @@ const ProductComment = ({ comment = {} }) => {
             Đánh giá vào {commentTime.value} {commentTime.unit} trước
           </Box>
           <Box className="review-comment__btn">
-            <Button className={`btn-thank ${like ? 'active' : ''}`}>
+            <Button
+              onClick={handleLike}
+              className={`btn-thank ${like ? 'active' : ''}`}
+            >
               {like ? <ThumbUpOffAltRoundedIcon /> : <ThumbUpOffAltIcon />}
-              Hữu ích {comment.likes_count > 0 && `(${comment.likes_count})`}
+              Hữu ích {likeCount > 0 && `(${likeCount})`}
             </Button>
             <Button className="btn-thank-reply">Bình luận</Button>
           </Box>

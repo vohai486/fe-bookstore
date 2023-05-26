@@ -113,10 +113,7 @@ const ModalStockEntries = ({
         setTimeout(() => {
           controller.abort()
         }, 5000)
-        const res = await bookApi.getAll(
-          { limit: 100, fields: 'name' },
-          controller.signal
-        )
+        const res = await bookApi.getAll({ limit: 100, fields: 'name' })
         setListBook(res.data.data)
       } catch (error) {}
     })()

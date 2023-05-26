@@ -2,7 +2,7 @@ import { Box, Paper, Typography, useTheme } from '@mui/material'
 import React from 'react'
 import StarIcon from '@mui/icons-material/Star'
 import { STATIC_HOST } from '@/constants/common'
-import { formatPrice, getImage } from '@/utils/common'
+import { formatPrice, generateNameId, getImage } from '@/utils/common'
 import { Link, useNavigate } from 'react-router-dom'
 const Product = ({ data = {} }) => {
   const theme = useTheme()
@@ -22,7 +22,7 @@ const Product = ({ data = {} }) => {
         },
       }}
     >
-      <Link to={`/${data._id}`}>
+      <Link to={`/${generateNameId(data.name, data._id)}`}>
         <img
           // src={`${STATIC_HOST}/img/books/${data?.thumbnail_url}`}
           src={getImage('books', data?.thumbnail_url)}
